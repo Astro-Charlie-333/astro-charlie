@@ -28,8 +28,12 @@ jobs:
 
       - name: Änderungen committen
         run: |
-          git config user.name "Astro Charlie Bot"
-          git config user.email "bot@astro-charlie.local"
-          git add heute/index.html
-          git diff --staged --quiet || git commit -m "Taegliche Transite: $(date +%Y-%m-%d)"
-          git push
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "Keine Aenderungen - nichts zu committen."
+          else
+            git commit -m "Taegliche Transite: $(date +%Y-%m-%d)"
+            git push
+          fi
