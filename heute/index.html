@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="de"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>Deine Transite heute</title>
 <style>@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
-:root{--bg:#FFF6F1;--card:#FCE4D6;--text:#3A1F14;--text-soft:#8A5A44;--indigo:#C1440E;--gold:#D9922E;--line:#F0CFB8;--harm:#4A7C59;--span:#B5502E;--konj:#7A5299;}
+:root{--bg:#FFF6F1;--card:#FCE4D6;--text:#3A1F14;--text-soft:#8A5A44;--indigo:#C1440E;--gold:#D9922E;--line:#F0CFB8;--harm:#4A7C59;--span:#B5502E;--konj:#7A5299;--slate:#3E6C7A;--slatebg:#E1E8E8;}
 *{box-sizing:border-box;}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;padding:32px 20px 60px;}
 .wrap{max-width:760px;margin:0 auto;}
 .sign-header{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
@@ -9,66 +9,61 @@
 .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
 .sub{font-size:14px;color:var(--text-soft);}h1{font-family:'Caveat',cursive;font-weight:700;font-size:46px;line-height:1.05;margin:0 0 8px;color:var(--indigo);}
 .back-link{font-size:12.5px;color:var(--indigo);font-family:'JetBrains Mono',monospace;display:inline-block;margin-bottom:22px;}
-.mood{background:linear-gradient(135deg,var(--card),#F8D9C4);border:1px solid var(--line);border-radius:18px;padding:20px 24px;margin-bottom:26px;}
+.mood{background:linear-gradient(135deg,var(--card),#F8D9C4);border:1px solid var(--line);border-radius:18px;padding:20px 24px;margin-bottom:22px;}
 .mood-label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
 .mood-moon{font-size:15px;font-weight:700;color:var(--indigo);margin-bottom:6px;}
 .mood-text{font-size:14.5px;line-height:1.6;color:var(--text-soft);}
+.dolass{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px;}
+@media(max-width:560px){.dolass{grid-template-columns:1fr;}}
+.dobox{background:var(--card);border-radius:16px;padding:16px 18px;border-top:4px solid var(--harm);}
+.lassbox{background:var(--card);border-radius:16px;padding:16px 18px;border-top:4px solid var(--span);}
+.dobox h3,.lassbox h3{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;}
+.dobox h3{color:var(--harm);}.lassbox h3{color:var(--span);}
+.dobox ul,.lassbox ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6;color:var(--text-soft);}
+.dobox li,.lassbox li{margin-bottom:8px;}
 h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin:32px 0 14px;font-weight:700;}
-.sky{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.9;color:var(--text-soft);background:var(--card);border-radius:14px;padding:16px 20px;border:1px solid var(--line);margin-bottom:8px;}
+.sky{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.9;color:var(--text-soft);background:var(--card);border-radius:14px;padding:16px 20px;border:1px solid var(--line);}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-bottom:12px;border-left:4px solid var(--line);}
 .card.harm{border-left-color:var(--harm);}.card.span{border-left-color:var(--span);}.card.konj{border-left-color:var(--konj);}
-.card.exact{box-shadow:0 2px 12px rgba(193,68,14,.12);}
 .card-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:7px;flex-wrap:wrap;}
-.card-title{font-weight:700;font-size:15.5px;}
-.card-meta{display:flex;gap:8px;align-items:center;flex-shrink:0;}
-.kat{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:20px;color:#fff;}
-.kat.harm{background:var(--harm);}.kat.span{background:var(--span);}.kat.konj{background:var(--konj);}
+.card-title{font-weight:700;font-size:15px;}
 .card-orb{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold);}
-.card p{margin:0;font-size:14px;line-height:1.6;color:var(--text-soft);}
-.footer-note{margin-top:36px;padding-top:20px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--text-soft);line-height:1.6;}
-.empty{background:var(--card);border-radius:16px;padding:24px;text-align:center;color:var(--text-soft);font-size:14.5px;}</style></head><body><div class="wrap">
+.card p{margin:0 0 8px;font-size:14px;line-height:1.6;color:var(--text-soft);}
+.card .rat{margin:0;font-size:13px;line-height:1.55;color:var(--indigo);font-weight:500;}
+.dariabox{background:var(--slatebg);border:1px solid #CBD8D8;border-radius:18px;padding:20px 22px;margin-bottom:12px;}
+.dariabox h3{margin:0 0 4px;font-size:15px;color:var(--slate);}
+.dariabox .dsub{font-size:12.5px;color:#5E7480;margin-bottom:14px;}
+.dcard{background:#F2F4F4;border-radius:12px;padding:12px 16px;margin-bottom:10px;}
+.dcard-head{font-weight:700;font-size:13.5px;color:var(--slate);margin-bottom:4px;display:flex;justify-content:space-between;gap:8px;}
+.dcard p{margin:0;font-size:13px;line-height:1.55;color:#5E7480;}
+.drat{font-size:13.5px;line-height:1.6;color:#22333B;background:#E9EEEE;border-radius:12px;padding:12px 16px;}
+.footer-note{margin-top:36px;padding-top:20px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--text-soft);line-height:1.6;}</style></head><body><div class="wrap">
 <div class="sign-header"><div class="sign-glyph">🌤️</div><div>
 <div class="eyebrow">Astro Charlie · Heute</div><div class="sub">Mittwoch, 22.07.2026 · Berlin</div></div></div>
-<h1>Deine Transite heute.</h1>
+<h1>Dein Tag, gedeutet.</h1>
 <a class="back-link" href="../index.html">← zur Startseite</a>
-<div class="mood">
-<div class="mood-label">Die Stimmung heute</div>
+<div class="mood"><div class="mood-label">Das Fazit für heute</div>
 <div class="mood-moon">☽ Mond in Skorpion · dein 6. Haus</div>
-<div class="mood-text">Ein Tag für Alltag, Körper, Ordnung und die kleinen Dinge, die guttun.</div></div>
-<h2>Was heute auf dich wirkt</h2>
-<div class="card konj">
-<div class="card-head"><span class="card-title">☽ Mond ☌ ♇ Pluto</span>
-<span class="card-meta"><span class="kat konj">Verstärkung</span><span class="card-orb">1.02°</span></span></div>
-<p>Transit-Mond färbt heute die Stimmung und verschmilzt damit - die Energien wirken heute als Einheit, kraftvoll und direkt. Es trifft deinen Pluto im 6. Haus - Alltag, Körper, Wandlung im Kleinen.</p></div>
-<div class="card harm">
-<div class="card-head"><span class="card-title">☽ Mond △ ☿ Merkur</span>
-<span class="card-meta"><span class="kat harm">Fluss</span><span class="card-orb">1.14°</span></span></div>
-<p>Transit-Mond färbt heute die Stimmung und fließt mühelos dazu - hier geht heute etwas leicht und wie von selbst. Es trifft dein Denken und Sprechen (10. Haus: dein Ausdruck nach außen, deine Berufung).</p></div>
-<div class="card harm">
-<div class="card-head"><span class="card-title">♆ Neptun <span style="color:var(--indigo)">R</span> ⚹ MC MC</span>
-<span class="card-meta"><span class="kat harm">Chance</span><span class="card-orb">1.59°</span></span></div>
-<p>Transit-Neptun bringt Sehnsucht und Auflösung und reicht ihm sanft die Hand - eine leichte Chance, wenn du sie ergreifst. Es trifft deine Berufung und Lebensrichtung (Wassermann-MC).</p></div>
-<div class="card konj">
-<div class="card-head"><span class="card-title">♇ Pluto <span style="color:var(--indigo)">R</span> ☌ MC MC</span>
-<span class="card-meta"><span class="kat konj">Verstärkung</span><span class="card-orb">1.63°</span></span></div>
-<p>Transit-Pluto bringt Tiefe und Wandlung und verschmilzt damit - die Energien wirken heute als Einheit, kraftvoll und direkt. Es trifft deine Berufung und Lebensrichtung (Wassermann-MC).</p></div>
-<div class="card harm">
-<div class="card-head"><span class="card-title">♃ Jupiter △ ♃ Jupiter</span>
-<span class="card-meta"><span class="kat harm">Fluss</span><span class="card-orb">1.78°</span></span></div>
-<p>Transit-Jupiter bringt Wachstum und Zuversicht und fließt mühelos dazu - hier geht heute etwas leicht und wie von selbst. Es trifft deinen Jupiter - Wachstum und Sinn (11. Haus, Herrscher deines 7. - deine Liebe & Zukunft).</p></div>
-<div class="card harm">
-<div class="card-head"><span class="card-title">♅ Uranus △ MC MC</span>
-<span class="card-meta"><span class="kat harm">Fluss</span><span class="card-orb">1.90°</span></span></div>
-<p>Transit-Uranus bringt Überraschung und Aufbruch und fließt mühelos dazu - hier geht heute etwas leicht und wie von selbst. Es trifft deine Berufung und Lebensrichtung (Wassermann-MC).</p></div>
-<div class="card harm">
-<div class="card-head"><span class="card-title">♅ Uranus ⚹ ♃ Jupiter</span>
-<span class="card-meta"><span class="kat harm">Chance</span><span class="card-orb">1.95°</span></span></div>
-<p>Transit-Uranus bringt Überraschung und Aufbruch und reicht ihm sanft die Hand - eine leichte Chance, wenn du sie ergreifst. Es trifft deinen Jupiter - Wachstum und Sinn (11. Haus, Herrscher deines 7. - deine Liebe & Zukunft).</p></div>
-<div class="card harm">
-<div class="card-head"><span class="card-title">♂ Mars ⚹ ☽ Mond</span>
-<span class="card-meta"><span class="kat harm">Chance</span><span class="card-orb">1.99°</span></span></div>
-<p>Transit-Mars bringt Antrieb und Tatkraft und reicht ihm sanft die Hand - eine leichte Chance, wenn du sie ergreifst. Es trifft dein Gefühlsleben und deine Bedürfnisse (11. Haus: dein Umfeld nährt dich).</p></div>
+<div class="mood-text">Körper- und Alltagstag: Routinen, Gesundheit, die kleinen Dinge. Dein System verarbeitet heute viel körperlich. Der stärkste Aspekt heute: Der Mond läuft heute über deinen Pluto im 6. Haus.</div></div>
+<div class="dolass">
+<div class="dobox"><h3>✓ Heute begünstigt</h3><ul><li>Begünstigt: ehrliche, ruhige Worte. Ein kurzes liebes Schreiben gelingt heute besser als eine lange Diskussion.</li><li>Tagträume zulassen. Was im Halbschlaf oder unter der Dusche kommt, ist heute wertvoller als jede To-do-Liste.</li><li>Vertrauen. Auch ein Blob-Tag zahlt auf dein Wachstum ein.</li><li>Wenn heute ein überraschender Gedanke zu deinem Weg auftaucht: aufschreiben. Das sind die echten.</li></ul></div>
+<div class="lassbox"><h3>✕ Heute lieber lassen</h3><ul><li>Merkur ist rückläufig: keine Verträge, keine endgültigen Klärungen, Missverständnis-Gefahr erhöht.</li></ul></div>
+</div>
+<h2>Du & Daria</h2>
+<div class="dariabox"><h3>🌊 Daria heute - euer Beziehungswetter</h3>
+<div class="dsub">Was gerade in ihr arbeitet und wie du ihr heute am besten begegnest</div>
+<div class="dcard"><div class="dcard-head">♀ Venus △ ihre Uranus <span class="card-orb">0.17°</span></div><p>Venus fließt zu ihrem Uranus im Beziehungshaus: Unter dem Nebel liegt heute eine überraschend warme, freie Note - ein unerwartet liebes Wort von ihr ist möglich, wenn kein Druck herrscht.</p></div><div class="dcard"><div class="dcard-head">☿ Merkur ☍ ihre Neptun <span class="card-orb">0.29°</span></div><p>Merkur opponiert ihren Neptun: Sie versteht heute leicht etwas anderes, als du sagst - und du liest vielleicht Dinge in ihre Worte, die nicht drin sind. Klassisches Missverständnis-Wetter.</p></div><div class="dcard"><div class="dcard-head">☿ Merkur □ ihre Sonne <span class="card-orb">0.45°</span></div><p>Merkur steht im Quadrat zu ihrer Sonne: Ihr Selbstwert ist heute leicht kratzbar, Worte treffen sie schneller als gemeint. Diskussionen eskalieren heute aus dem Nichts - nicht weil ihr nicht passt, sondern weil ihr Empfang gestört ist.</p></div>
+<div class="drat"><b>Dein Umgang heute:</b> Ihr Empfang ist gestört - das ist Wetter, nicht ihr Herz. Diskussionen heute nicht vertiefen, nichts Grundsätzliches klären, kurz und warm bleiben. Ein einzelner lieber Satz wirkt heute mehr als jedes Klärungsgespräch. Wenn sie stichelt oder wirr wirkt: nicht persönlich nehmen, ruhiger Pol bleiben.</div></div>
+<h2>Deine Transite im Detail</h2>
+<div class="card konj"><div class="card-head"><span class="card-title">☽ Mond ☌ ♇ Pluto</span><span class="card-orb">1.02°</span></div><p>Der Mond läuft heute über deinen Pluto im 6. Haus - das ist ein intensiver Körper- und Bauchtag. Emotionen sitzen heute körperlich: Magen, Verdauung, Unterleib. Auch Träume können aufgewühlt und dunkel sein - Pluto holt nachts hoch, was tagsüber keinen Platz hatte. Wenn dein Körper heute laut ist (Zyklus, Bauch, Erschöpfung), ist das keine Fehlfunktion, sondern genau dieses Wetter.</p><p class="rat">→ Heute gilt: Körper zuerst. Wärme, Ruhe, nichts erzwingen. Schwere Gespräche und große Entscheidungen auf morgen schieben.</p></div>
+<div class="card harm"><div class="card-head"><span class="card-title">☽ Mond △ ☿ Merkur</span><span class="card-orb">1.14°</span></div><p>Gleichzeitig fließt der Mond harmonisch zu deinem Merkur - deine Worte finden heute Gefühl. Wenn du schreibst oder sprichst, kommt es warm und stimmig raus, besonders in ruhigen Eins-zu-eins-Momenten.</p><p class="rat">→ Begünstigt: ehrliche, ruhige Worte. Ein kurzes liebes Schreiben gelingt heute besser als eine lange Diskussion.</p></div>
+<div class="card harm"><div class="card-head"><span class="card-title">♆ Neptun <span style="color:var(--indigo)">R</span> ⚹ MC MC</span><span class="card-orb">1.59°</span></div><p>Neptun schenkt deiner Berufung leise Inspiration - Visionen entstehen gerade im Ruhen und Träumen, nicht am Schreibtisch.</p><p class="rat">→ Tagträume zulassen. Was im Halbschlaf oder unter der Dusche kommt, ist heute wertvoller als jede To-do-Liste.</p></div>
+<div class="card konj"><div class="card-head"><span class="card-title">♇ Pluto <span style="color:var(--indigo)">R</span> ☌ MC MC</span><span class="card-orb">1.63°</span></div><p>Der große Hintergrund-Transit: Pluto steht weiter auf deinem MC und baut deine Lebensrichtung tiefgreifend um. Das arbeitet leise, kostet aber täglich Kraft - wie ein Update, das im Hintergrund läuft.</p><p class="rat">→ Nicht wundern, wenn die Energie schneller leer ist als sonst. Das ist Tiefenarbeit, kein Versagen.</p></div>
+<div class="card harm"><div class="card-head"><span class="card-title">♃ Jupiter △ ♃ Jupiter</span><span class="card-orb">1.78°</span></div><p>Jupiter im Trigon zu deinem Jupiter - dein Wachstums- und Liebesplanet (Herrscher deines 7. Hauses) wird sanft geweitet. Ein wohlwollender Grundton unter allem, auch wenn der Tag schwer ist: Es wächst trotzdem etwas.</p><p class="rat">→ Vertrauen. Auch ein Blob-Tag zahlt auf dein Wachstum ein.</p></div>
+<div class="card harm"><div class="card-head"><span class="card-title">♅ Uranus △ MC MC</span><span class="card-orb">1.90°</span></div><p>Uranus fließt harmonisch zu deinem MC - Erneuerung deiner Richtung geht gerade leicht, in kleinen Aha-Momenten und plötzlichen Einfällen.</p><p class="rat">→ Wenn heute ein überraschender Gedanke zu deinem Weg auftaucht: aufschreiben. Das sind die echten.</p></div>
+<div class="card harm"><div class="card-head"><span class="card-title">♅ Uranus ⚹ ♃ Jupiter</span><span class="card-orb">1.95°</span></div><p>Uranus unterstützt deinen Jupiter - Überraschendes kann heute Türen öffnen, gerade über Menschen und dein Umfeld.</p><p class="rat">→ Offen bleiben für Unerwartetes von Freundinnen oder Kontakten.</p></div>
+<div class="card harm"><div class="card-head"><span class="card-title">♂ Mars ⚹ ☽ Mond</span><span class="card-orb">1.99°</span></div><p>Mars reicht deinem Mond die Hand - trotz allem ist heute ein Rest Kraft für das Nötigste da, dosiert und ruhig einsetzbar.</p><p class="rat">→ Eine kleine Sache erledigen reicht. Nicht die Liste - eine Sache.</p></div>
 <h2>Der ganze Himmel</h2>
 <div class="sky">☉ Krebs 29°37′ · ☽ Skorpion 10°24′ · ☿ Krebs 16°25′<span style="color:var(--indigo)">R</span> · ♀ Jungfrau 13°55′ · ♂ Zwillinge 16°32′ · ♃ Löwe 4°50′ · ♄ Widder 14°44′ · ♅ Zwillinge 4°40′ · ♆ Widder 4°21′<span style="color:var(--indigo)">R</span> · ♇ Wassermann 4°23′<span style="color:var(--indigo)">R</span></div>
-<div class="footer-note">Automatisch berechnet mit Swiss Ephemeris für Mittwoch, 22.07.2026, Berlin · Whole Sign. Diese Seite aktualisiert sich jeden Morgen von selbst. Farben zeigen die Aspekt-Qualität: <span style="color:var(--harm)">grün = Fluss/Chance</span>, <span style="color:var(--span)">rot = Reibung/Spannung</span>, <span style="color:var(--konj)">violett = Verstärkung</span>. Transite beschreiben Zeitqualitäten, keine festen Ereignisse.</div>
+<div class="footer-note">Automatisch berechnet mit Swiss Ephemeris für Mittwoch, 22.07.2026, Berlin · Whole Sign. Aktualisiert sich jeden Morgen. Zu jeder Karte: erst was wirkt, dann (→) was du damit machst. Transite beschreiben Zeitqualitäten, keine festen Ereignisse.</div>
 </div></body></html>
