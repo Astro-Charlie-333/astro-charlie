@@ -1,0 +1,35 @@
+name: Tägliche Transite
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-transits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Abhängigkeiten installieren
+        run: pip install -r requirements.txt
+
+      - name: Transite generieren
+        run: python generate_heute.py
+
+      - name: Änderungen committen
+        run: |
+          git config user.name "Astro Charlie Bot"
+          git config user.email "bot@astro-charlie.local"
+          git add heute/index.html
+          git diff --staged --quiet || git commit -m "Taegliche Transite: $(date +%Y-%m-%d)"
+          git push
