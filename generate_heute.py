@@ -146,8 +146,8 @@ h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold
 .footer-note{margin-top:36px;padding-top:20px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--text-soft);line-height:1.6;}
 .empty{background:var(--card);border-radius:16px;padding:24px;text-align:center;color:var(--text-soft);font-size:14.5px;}"""
 
-sky_html = '<div class="sky">' + ' · '.join(
-    f"{GL[n]} {sp(d)}{' <span style=\"color:var(--indigo)\">R</span>' if r else ''}" for n,(d,r) in sky.items()) + '</div>'
+RSPAN = '<span style="color:var(--indigo)">R</span>'
+sky_html = '<div class="sky">' + ' · '.join(f"{GL[n]} {sp(d)}" + (RSPAN if r else '') for n,(d,r) in sky.items()) + '</div>'
 
 # Mond separat hervorheben in Stimmungsbox
 mood_html = f'''<div class="mood">
@@ -159,7 +159,7 @@ cards = []
 for o,tn,nm,g,nn,retro in hits[:8]:
     katname,katcls = kat(nm)
     exact = ' exact' if o<=0.5 else ''
-    r = ' <span style="color:var(--indigo)">R</span>' if retro else ''
+    r = ' ' + RSPAN if retro else ''
     katbadge = f'<span class="kat {katcls}">{katname}</span>' if katname else ''
     cards.append(f'''<div class="card {katcls}{exact}">
 <div class="card-head"><span class="card-title">{GL.get(tn,tn)} {tn}{r} {g} {GL.get(nn,nn)} {nn}</span>
